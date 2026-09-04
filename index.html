@@ -4,1484 +4,327 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registro de Delegaciones • TECMUN | Tecnológico de Monterrey</title>
-  <meta name="description" content="Formulario de inscripción de escuelas y delegados para TECMUN (Campus Estado de México) estilo Google Forms.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📝</text></svg>">
+  <meta name="description" content="Portal oficial de registro para escuelas e instituciones invitadas a TECMUN Campus Estado de México.">
   
-  <!-- Tipografía oficial estilo Google (Roboto / Product Sans) -->
+  <!-- Tipografía moderna del sistema -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Google+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
   
-  <style>
-    /* ==========================================================================
-       ESTILOS GOOGLE FORMS • TECMUN (TECNOLÓGICO DE MONTERREY)
-       ========================================================================== */
-    :root {
-      --gf-bg: #e8edf5;
-      --gf-card-bg: #ffffff;
-      --gf-primary: #003366;
-      --gf-primary-hover: #002244;
-      --gf-accent: #0056B3;
-      --gf-accent-hover: #004494;
-      --gf-accent-light: #e8f0fe;
-      --gf-text-dark: #202124;
-      --gf-text-secondary: #5f6368;
-      --gf-text-muted: #70757a;
-      --gf-border: #dadce0;
-      --gf-border-focus: #0056B3;
-      --gf-error: #d93025;
-      --gf-error-bg: #fce8e6;
-      --gf-success: #188038;
-      --gf-shadow-card: 0 1px 3px 0 rgba(60, 64, 67, 0.12), 0 1px 2px 0 rgba(60, 64, 67, 0.08);
-      --gf-radius: 8px;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      font-size: 16px;
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Roboto', 'Google Sans', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
-      background-color: var(--gf-bg);
-      color: var(--gf-text-dark);
-      line-height: 1.5;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 16px 12px 64px 12px;
-    }
-
-    .gforms-layout {
-      width: 100%;
-      max-width: 640px;
-      margin: 0 auto;
-    }
-
-    .gf-card {
-      background-color: var(--gf-card-bg);
-      border: 1px solid var(--gf-border);
-      border-radius: var(--gf-radius);
-      padding: 22px 24px;
-      margin-bottom: 12px;
-      box-shadow: var(--gf-shadow-card);
-      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-    }
-
-    .gf-card.gf-active-card,
-    .gf-card:focus-within {
-      border-left: 6px solid var(--gf-accent);
-      box-shadow: 0 1px 3px 0 rgba(60,64,67,0.2), 0 3px 8px 1px rgba(60,64,67,0.1);
-    }
-
-    .gf-header-card {
-      padding-top: 0;
-      overflow: hidden;
-      position: relative;
-      border-top-left-radius: var(--gf-radius);
-      border-top-right-radius: var(--gf-radius);
-    }
-
-    .gf-header-accent {
-      height: 10px;
-      background: linear-gradient(90deg, #003366 0%, #0056B3 100%);
-      margin: 0 -24px 20px -24px;
-    }
-
-    .gf-badge-tec {
-      font-size: 11.5px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--gf-accent);
-      margin-bottom: 8px;
-    }
-
-    .gf-brand-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .gf-logo-circle {
-      width: 38px;
-      height: 38px;
-      background-color: #eef2f7;
-      color: var(--gf-primary);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .gf-logo-circle svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .gf-title {
-      font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
-      font-size: 26px;
-      font-weight: 400;
-      color: var(--gf-text-dark);
-      line-height: 1.25;
-    }
-
-    .gf-description {
-      font-size: 14px;
-      color: var(--gf-text-dark);
-      line-height: 1.55;
-      margin-top: 12px;
-      padding-top: 12px;
-      border-top: 1px solid var(--gf-border);
-    }
-
-    .gf-subdescription {
-      font-size: 13px;
-      color: var(--gf-text-secondary);
-      margin-top: 6px;
-    }
-
-    .gf-required-note {
-      font-size: 13px;
-      color: var(--gf-error);
-      margin-top: 14px;
-    }
-
-    .gf-req-star {
-      color: var(--gf-error);
-      font-weight: bold;
-    }
-
-    .gf-question-title {
-      font-size: 15px;
-      font-weight: 500;
-      color: var(--gf-text-dark);
-      line-height: 20px;
-      margin-bottom: 4px;
-    }
-
-    .gf-question-helper {
-      font-size: 12px;
-      color: var(--gf-text-secondary);
-      line-height: 16px;
-      margin-bottom: 14px;
-    }
-
-    .gf-input-wrapper {
-      position: relative;
-      width: 100%;
-      margin-top: 8px;
-    }
-
-    .gf-text-input {
-      width: 100%;
-      border: none;
-      border-bottom: 1px solid var(--gf-border);
-      border-radius: 0;
-      padding: 8px 0 6px 0;
-      font-family: inherit;
-      font-size: 14px;
-      color: var(--gf-text-dark);
-      background: transparent;
-      outline: none;
-      transition: border-bottom-color 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .gf-text-input::placeholder {
-      color: var(--gf-text-muted);
-      font-size: 14px;
-    }
-
-    .gf-input-bar {
-      position: absolute;
-      bottom: 0;
-      left: 50%;
-      height: 2px;
-      width: 0;
-      background-color: var(--gf-accent);
-      transition: width 0.25s cubic-bezier(0.4, 0, 0.2, 1), left 0.25s cubic-bezier(0.4, 0, 0.2, 1);
-      pointer-events: none;
-    }
-
-    .gf-text-input:focus ~ .gf-input-bar {
-      width: 100%;
-      left: 0;
-    }
-
-    .gf-select-wrapper {
-      position: relative;
-      width: 100%;
-      margin-top: 8px;
-    }
-
-    .gf-select-input {
-      width: 100%;
-      border: 1px solid var(--gf-border);
-      border-radius: 4px;
-      padding: 10px 36px 10px 12px;
-      font-family: inherit;
-      font-size: 14px;
-      color: var(--gf-text-dark);
-      background-color: #ffffff;
-      outline: none;
-      cursor: pointer;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-
-    .gf-select-input:focus {
-      border-color: var(--gf-accent);
-      box-shadow: 0 0 0 1px var(--gf-accent);
-    }
-
-    .gf-select-arrow {
-      position: absolute;
-      right: 12px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 18px;
-      height: 18px;
-      color: var(--gf-text-secondary);
-      pointer-events: none;
-    }
-
-    .gf-error-msg {
-      font-size: 12px;
-      color: var(--gf-error);
-      margin-top: 6px;
-      line-height: 14px;
-      min-height: 14px;
-    }
-
-    .gf-text-input.is-invalid {
-      border-bottom: 2px solid var(--gf-error) !important;
-    }
-
-    .gf-select-input.is-invalid {
-      border-color: var(--gf-error) !important;
-    }
-
-    .gf-section-divider {
-      background-color: var(--gf-primary);
-      color: #ffffff;
-      border-radius: var(--gf-radius);
-      padding: 16px 24px;
-      margin: 24px 0 14px 0;
-      box-shadow: var(--gf-shadow-card);
-    }
-
-    .gf-section-badge {
-      font-size: 11px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      opacity: 0.85;
-      margin-bottom: 4px;
-    }
-
-    .gf-section-heading {
-      font-family: 'Google Sans', 'Roboto', Arial, sans-serif;
-      font-size: 18px;
-      font-weight: 500;
-      line-height: 1.3;
-    }
-
-    .gf-section-text {
-      font-size: 13px;
-      opacity: 0.9;
-      margin-top: 4px;
-      line-height: 1.4;
-    }
-
-    .gf-delegate-card {
-      animation: gfFadeIn 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    @keyframes gfFadeIn {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    .gf-delegate-card.removing {
-      animation: gfFadeOut 0.2s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-    }
-
-    @keyframes gfFadeOut {
-      from { opacity: 1; transform: scale(1); max-height: 600px; }
-      to { opacity: 0; transform: scale(0.96) translateY(-8px); max-height: 0; padding: 0; margin: 0; border: none; }
-    }
-
-    .gf-delegate-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-bottom: 14px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--gf-border);
-    }
-
-    .gf-delegate-header-title {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .gf-pill-number {
-      background-color: var(--gf-primary);
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 3px 8px;
-      border-radius: 4px;
-      letter-spacing: 0.04em;
-    }
-
-    .gf-delegate-name-label {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gf-text-dark);
-    }
-
-    .gf-btn-icon-delete {
-      background: transparent;
-      border: none;
-      color: var(--gf-text-secondary);
-      padding: 6px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background-color 0.2s, color 0.2s;
-    }
-
-    .gf-btn-icon-delete:hover {
-      background-color: #fee4e2;
-      color: var(--gf-error);
-    }
-
-    .gf-btn-icon-delete svg {
-      width: 20px;
-      height: 20px;
-    }
-
-    .gf-field-group {
-      margin-bottom: 18px;
-    }
-
-    .gf-field-group:last-child {
-      margin-bottom: 4px;
-    }
-
-    .gf-add-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background-color: #ffffff;
-      border: 1px dashed #b8c9dd;
-      padding: 16px 24px;
-    }
-
-    .gf-btn-add {
-      background-color: #ffffff;
-      color: var(--gf-primary);
-      border: 1px solid var(--gf-border);
-      border-radius: 4px;
-      padding: 9px 18px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      cursor: pointer;
-      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.1);
-      transition: all 0.2s ease;
-    }
-
-    .gf-btn-add svg {
-      width: 18px;
-      height: 18px;
-      color: var(--gf-accent);
-    }
-
-    .gf-btn-add:hover {
-      background-color: var(--gf-accent-light);
-      border-color: var(--gf-accent);
-    }
-
-    .gf-delegate-counter-text {
-      font-size: 13px;
-      color: var(--gf-text-secondary);
-    }
-
-    .gf-actions-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 16px;
-      padding: 4px 4px;
-    }
-
-    .gf-left-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .gf-btn-submit {
-      background-color: var(--gf-primary);
-      color: #ffffff;
-      border: none;
-      border-radius: 4px;
-      padding: 10px 24px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      letter-spacing: 0.25px;
-      cursor: pointer;
-      box-shadow: 0 1px 2px 0 rgba(60,64,67,0.3), 0 1px 3px 1px rgba(60,64,67,0.15);
-      transition: background-color 0.2s, box-shadow 0.2s;
-    }
-
-    .gf-btn-submit:hover {
-      background-color: var(--gf-accent);
-      box-shadow: 0 1px 3px 0 rgba(60,64,67,0.3), 0 4px 8px 3px rgba(60,64,67,0.15);
-    }
-
-    .gf-btn-clear {
-      background: transparent;
-      color: var(--gf-accent);
-      border: none;
-      padding: 10px 14px;
-      font-family: inherit;
-      font-size: 14px;
-      font-weight: 500;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background-color 0.2s;
-    }
-
-    .gf-btn-clear:hover {
-      background-color: rgba(0, 86, 179, 0.08);
-    }
-
-    .gf-progress-text {
-      font-size: 12px;
-      color: var(--gf-text-muted);
-    }
-
-    .gf-confirmation-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 12px;
-    }
-
-    .gf-check-icon {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: #e6f4ea;
-      color: var(--gf-success);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-
-    .gf-check-icon svg {
-      width: 22px;
-      height: 22px;
-    }
-
-    .gf-confirmation-body {
-      padding-top: 14px;
-      border-top: 1px solid var(--gf-border);
-    }
-
-    .gf-success-banner {
-      background-color: #e6f4ea;
-      border-left: 4px solid var(--gf-success);
-      color: #137333;
-      padding: 12px 16px;
-      border-radius: 4px;
-      font-size: 15px;
-      font-weight: 500;
-      margin-bottom: 16px;
-    }
-
-    .gf-folio-box {
-      background-color: #f8f9fa;
-      border: 1px solid var(--gf-border);
-      border-radius: 6px;
-      padding: 12px 16px;
-      margin-bottom: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-    }
-
-    .gf-folio-label {
-      font-size: 11.5px;
-      text-transform: uppercase;
-      color: var(--gf-text-muted);
-      font-weight: 500;
-    }
-
-    .gf-folio-code {
-      font-size: 18px;
-      color: var(--gf-primary);
-      font-family: 'Google Sans', 'Roboto', monospace;
-      letter-spacing: 0.04em;
-    }
-
-    .gf-folio-date {
-      font-size: 12px;
-      color: var(--gf-text-secondary);
-    }
-
-    .gf-confirmation-text {
-      font-size: 14px;
-      color: var(--gf-text-dark);
-      margin-bottom: 18px;
-    }
-
-    .gf-summary-box {
-      background-color: #fafbfc;
-      border: 1px solid var(--gf-border);
-      border-radius: 6px;
-      padding: 14px 16px;
-      margin-bottom: 18px;
-    }
-
-    .gf-summary-title {
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--gf-primary);
-      margin-bottom: 8px;
-    }
-
-    .gf-summary-row {
-      display: flex;
-      font-size: 13px;
-      padding: 4px 0;
-      border-bottom: 1px solid #f1f3f4;
-    }
-
-    .gf-summary-row:last-child {
-      border-bottom: none;
-    }
-
-    .gf-summary-label {
-      width: 140px;
-      color: var(--gf-text-secondary);
-      flex-shrink: 0;
-    }
-
-    .gf-summary-val {
-      color: var(--gf-text-dark);
-      font-weight: 500;
-      word-break: break-word;
-    }
-
-    .gf-delegates-summary-wrapper {
-      margin-bottom: 20px;
-    }
-
-    .gf-table-scroll {
-      overflow-x: auto;
-      border: 1px solid var(--gf-border);
-      border-radius: 6px;
-    }
-
-    .gf-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 12.5px;
-      text-align: left;
-    }
-
-    .gf-table thead {
-      background-color: #f1f3f4;
-      color: var(--gf-text-dark);
-    }
-
-    .gf-table th {
-      padding: 8px 10px;
-      font-weight: 500;
-      white-space: nowrap;
-      border-bottom: 1px solid var(--gf-border);
-    }
-
-    .gf-table td {
-      padding: 8px 10px;
-      border-bottom: 1px solid #f1f3f4;
-      vertical-align: middle;
-    }
-
-    .gf-table tbody tr:last-child td {
-      border-bottom: none;
-    }
-
-    .gf-table tbody tr:nth-child(even) {
-      background-color: #fafbfc;
-    }
-
-    .gf-confirmation-actions {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      padding-top: 8px;
-    }
-
-    .gf-btn-secondary {
-      background-color: #ffffff;
-      color: var(--gf-primary);
-      border: 1px solid var(--gf-border);
-      border-radius: 4px;
-      padding: 9px 18px;
-      font-family: inherit;
-      font-size: 13.5px;
-      font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .gf-btn-secondary svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .gf-btn-secondary:hover {
-      background-color: var(--gf-accent-light);
-      border-color: var(--gf-accent);
-    }
-
-    .gf-btn-link {
-      background: transparent;
-      border: none;
-      color: var(--gf-accent);
-      font-size: 14px;
-      cursor: pointer;
-      text-decoration: underline;
-      padding: 8px;
-    }
-
-    .gf-footer {
-      text-align: center;
-      margin-top: 24px;
-      color: var(--gf-text-secondary);
-      font-size: 12px;
-      line-height: 1.6;
-    }
-
-    .gf-footer-disclaimer {
-      margin-bottom: 8px;
-    }
-
-    .gf-footer-brand {
-      margin-top: 8px;
-      font-size: 14px;
-      color: var(--gf-text-dark);
-    }
-
-    .gf-toast-container {
-      position: fixed;
-      bottom: 24px;
-      left: 24px;
-      z-index: 1000;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      pointer-events: none;
-    }
-
-    .gf-toast {
-      pointer-events: auto;
-      background-color: #323232;
-      color: #ffffff;
-      padding: 12px 18px;
-      border-radius: 4px;
-      font-size: 13.5px;
-      box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      max-width: 380px;
-      animation: gfToastIn 0.2s ease forwards;
-    }
-
-    @keyframes gfToastIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @media print {
-      body {
-        background-color: #ffffff !important;
-        padding: 0 !important;
-        color: #000000 !important;
-      }
-      .gforms-layout { max-width: 100% !important; }
-      #form-view, .gf-header-accent, .gf-confirmation-actions, .gf-footer, .gf-toast-container { display: none !important; }
-      #confirmation-view { display: block !important; }
-      .gf-card { border: 1px solid #ccc !important; box-shadow: none !important; padding: 16px !important; }
-      .gf-table th { background-color: #eef2f7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <div class="gforms-layout">
-
-    <!-- Vista del Formulario Activo -->
-    <div id="form-view">
-      <form id="registration-form" novalidate>
-
-        <!-- TARJETA 1: ENCABEZADO PRINCIPAL (HEADER CARD) -->
-        <div class="gf-card gf-header-card gf-active-card" id="card-header">
-          <div class="gf-header-accent"></div>
-          
-          <div class="gf-header-brand">
-            <div class="gf-badge-tec">Tecnológico de Monterrey • Campus Estado de México</div>
-            <div class="gf-brand-row">
-              <div class="gf-logo-circle">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <circle cx="12" cy="12" r="10"></circle>
-                  <line x1="2" y1="12" x2="22" y2="12"></line>
-                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                </svg>
-              </div>
-              <h1 class="gf-title">Registro de Escuelas y Delegados • TECMUN</h1>
-            </div>
-          </div>
-
-          <div class="gf-description">
-            <p>
-              Estimados asesores y <em>Faculty Advisors</em>: completen este formulario oficial para registrar a su institución educativa y dar de alta a todos los alumnos que integrarán su delegación en la próxima edición de <strong>TECMUN CEM</strong>.
-            </p>
-            <p class="gf-subdescription">
-              📍 Formato Presencial • Tecnológico de Monterrey, Campus Estado de México
-            </p>
-          </div>
-
-          <div class="gf-required-note">
-            <span class="gf-req-star">*</span> Indica que la pregunta es obligatoria
-          </div>
-        </div>
-
-        <!-- SECCIÓN 1: DATOS DE LA INSTITUCIÓN Y ASESOR -->
-
-        <!-- Pregunta: Nombre de la Escuela -->
-        <div class="gf-card" data-card="school-name">
-          <div class="gf-question-title">
-            Nombre de la Escuela o Institución Educativa <span class="gf-req-star">*</span>
-          </div>
-          <div class="gf-question-helper">
-            Nombre oficial del colegio o campus de procedencia.
-          </div>
-          <div class="gf-input-wrapper">
-            <input 
-              type="text" 
-              id="school-name" 
-              name="school-name" 
-              class="gf-text-input" 
-              placeholder="Tu respuesta" 
-              required
-              autocomplete="organization"
-            >
-            <div class="gf-input-bar"></div>
-          </div>
-          <div class="gf-error-msg" id="school-name-error"></div>
-        </div>
-
-        <!-- Pregunta: Nombre del Asesor -->
-        <div class="gf-card" data-card="advisor-name">
-          <div class="gf-question-title">
-            Nombre completo del Asesor(a) Responsable <span class="gf-req-star">*</span>
-          </div>
-          <div class="gf-question-helper">
-            Profesor(a) o coordinador(a) que acompaña y representa a la delegación.
-          </div>
-          <div class="gf-input-wrapper">
-            <input 
-              type="text" 
-              id="advisor-name" 
-              name="advisor-name" 
-              class="gf-text-input" 
-              placeholder="Tu respuesta" 
-              required
-              autocomplete="name"
-            >
-            <div class="gf-input-bar"></div>
-          </div>
-          <div class="gf-error-msg" id="advisor-name-error"></div>
-        </div>
-
-        <!-- Pregunta: Correo Electrónico Institucional -->
-        <div class="gf-card" data-card="advisor-email">
-          <div class="gf-question-title">
-            Correo electrónico institucional o de contacto del Asesor <span class="gf-req-star">*</span>
-          </div>
-          <div class="gf-question-helper">
-            A este correo se enviarán los paquetes informativos (Background Guides), avisos y comprobante oficial.
-          </div>
-          <div class="gf-input-wrapper">
-            <input 
-              type="email" 
-              id="advisor-email" 
-              name="advisor-email" 
-              class="gf-text-input" 
-              placeholder="correo@colegio.edu.mx" 
-              required
-              autocomplete="email"
-            >
-            <div class="gf-input-bar"></div>
-          </div>
-          <div class="gf-error-msg" id="advisor-email-error"></div>
-        </div>
-
-        <!-- Pregunta: Teléfono de Contacto -->
-        <div class="gf-card" data-card="advisor-phone">
-          <div class="gf-question-title">
-            Teléfono de contacto / WhatsApp del Asesor <span class="gf-req-star">*</span>
-          </div>
-          <div class="gf-question-helper">
-            Número a 10 dígitos para comunicación directa durante los días del modelo.
-          </div>
-          <div class="gf-input-wrapper">
-            <input 
-              type="tel" 
-              id="advisor-phone" 
-              name="advisor-phone" 
-              class="gf-text-input" 
-              placeholder="Ej. 55 1234 5678" 
-              required
-              autocomplete="tel"
-            >
-            <div class="gf-input-bar"></div>
-          </div>
-          <div class="gf-error-msg" id="advisor-phone-error"></div>
-        </div>
-
-        <!-- SECCIÓN 2: REGISTRO DINÁMICO DE DELEGADOS -->
-        <div class="gf-section-divider">
-          <div class="gf-section-badge">Sección 2 de 2</div>
-          <h2 class="gf-section-heading">Alta de Alumnos Delegados</h2>
-          <p class="gf-section-text">
-            Registra a cada alumno que asistirá en representación de tu escuela con su respectivo comité y país asignado.
-          </p>
-        </div>
-
-        <div id="delegates-container"></div>
-
-        <div class="gf-card gf-add-card">
-          <button type="button" id="btn-add-delegate" class="gf-btn-add">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-              <line x1="12" y1="5" x2="12" y2="19"></line>
-              <line x1="5" y1="12" x2="19" y2="12"></line>
-            </svg>
-            <span>+ Agregar Delegado</span>
-          </button>
-          <div class="gf-delegate-counter-text" id="delegates-status-text">
-            1 delegado en lista
-          </div>
-        </div>
-
-        <div class="gf-actions-row">
-          <div class="gf-left-actions">
-            <button type="submit" id="btn-submit" class="gf-btn-submit">
-              Registrar Delegación
-            </button>
-            <button type="button" id="btn-clear-form" class="gf-btn-clear">
-              Borrar formulario
-            </button>
-          </div>
-          <div class="gf-progress-text">Página 1 de 1</div>
-        </div>
-
-      </form>
+  <!-- Barra Superior Institucional Tec de Monterrey -->
+  <header class="top-banner">
+    <div class="banner-inner">
+      <div class="banner-brand">
+        <span class="banner-tec-name">TECNOLÓGICO DE MONTERREY</span>
+        <span class="banner-divider">|</span>
+        <span class="banner-campus">CAMPUS ESTADO DE MÉXICO</span>
+      </div>
+      <div class="banner-tag">TECMUN 2026</div>
     </div>
+  </header>
 
-    <!-- VISTA DE CONFIRMACIÓN -->
-    <div id="confirmation-view" hidden>
-      <div class="gf-card gf-header-card">
-        <div class="gf-header-accent"></div>
+  <!-- Contenedor Central Delimitado -->
+  <main class="page-container">
+    
+    <!-- Encabezado Principal -->
+    <header class="form-header">
+      <h1 class="header-main-title">TECMUN - CAMPUS ESTADO DE MÉXICO</h1>
+      <h2 class="header-sub-title">REGISTRO DE DELEGACIONES - ESCUELAS INVITADAS</h2>
+      <p class="header-instruction">
+        Estimados asesores: favor de registrar la información institucional de su escuela y dar de alta a todos los alumnos que integrarán su delegación oficial. Los campos marcados con (<span class="req">*</span>) son obligatorios.
+      </p>
+    </header>
+
+    <form id="tecmun-form" novalidate>
+
+      <!-- SECCIÓN 1: DATOS DE LA INSTITUCIÓN -->
+      <section class="form-section" id="sec-institution">
+        <div class="section-title-bar">
+          <span class="section-title-text">DATOS DE LA INSTITUCIÓN</span>
+        </div>
+        <div class="section-content">
+          <div class="grid-2col">
+            
+            <!-- Campo 1: Nombre de la Escuela -->
+            <div class="field-item">
+              <label for="school_name" class="field-label">
+                Nombre de la Escuela / Institución <span class="req">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="school_name" 
+                name="school_name" 
+                class="field-input" 
+                placeholder="Ej. Colegio Alemán Alexander von Humboldt"
+                required
+                autocomplete="organization"
+              >
+              <span class="field-error" id="school_name-error"></span>
+            </div>
+
+            <!-- Campo 2: País / Estado -->
+            <div class="field-item">
+              <label for="school_location" class="field-label">
+                País / Estado de Origen <span class="req">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="school_location" 
+                name="school_location" 
+                class="field-input" 
+                placeholder="Ej. México, Estado de México / CDMX"
+                required
+              >
+              <span class="field-error" id="school_location-error"></span>
+            </div>
+
+            <!-- Campo 3: Asesor Responsable -->
+            <div class="field-item">
+              <label for="advisor_name" class="field-label">
+                Asesor(a) Responsable (Nombre Completo) <span class="req">*</span>
+              </label>
+              <input 
+                type="text" 
+                id="advisor_name" 
+                name="advisor_name" 
+                class="field-input" 
+                placeholder="Ej. Mtra. Sofía Ramírez Mendoza"
+                required
+                autocomplete="name"
+              >
+              <span class="field-error" id="advisor_name-error"></span>
+            </div>
+
+            <!-- Campo 4: Correo de Contacto -->
+            <div class="field-item">
+              <label for="advisor_email" class="field-label">
+                Correo Electrónico de Contacto <span class="req">*</span>
+              </label>
+              <input 
+                type="email" 
+                id="advisor_email" 
+                name="advisor_email" 
+                class="field-input" 
+                placeholder="asesor@colegio.edu.mx"
+                required
+                autocomplete="email"
+              >
+              <span class="field-error" id="advisor_email-error"></span>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: LISTA DE DELEGADOS -->
+      <section class="form-section" id="sec-delegates">
+        <div class="section-title-bar flex-between">
+          <span class="section-title-text">LISTA DE DELEGADOS</span>
+          <span class="delegates-count-pill" id="delegates-count-pill">1 Delegado</span>
+        </div>
+        <div class="section-content">
+          <p class="section-helper-text">
+            Ingresa a cada uno de los alumnos delegados. Puedes añadir cuantos alumnos asistan en la delegación de tu institución.
+          </p>
+
+          <!-- Contenedor dinámico de filas/bloques de delegados -->
+          <div id="delegates-container" class="delegates-container">
+            <!-- Insertados dinámicamente con JS -->
+          </div>
+
+          <!-- Botón ancho y destacado -->
+          <div class="add-btn-wrapper">
+            <button type="button" id="btn-add-delegate" class="btn-add-broad">
+              <svg class="icon-fixed-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="12" y1="5" x2="12" y2="19"></line>
+                <line x1="5" y1="12" x2="19" y2="12"></line>
+              </svg>
+              <span>+ AGREGAR OTRO DELEGADO</span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 3: ACCIONES E INFORMACIÓN DE ENVÍO -->
+      <div class="form-bottom-actions">
+        <button type="button" id="btn-reset" class="btn-secondary-grey">
+          Limpiar Formulario
+        </button>
+
+        <button type="submit" id="btn-submit" class="btn-primary-blue">
+          <span class="btn-text">REGISTRAR DELEGACIÓN</span>
+          <svg class="icon-fixed-16 btn-arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+          <span class="btn-spinner" id="btn-spinner" hidden></span>
+        </button>
+      </div>
+
+    </form>
+
+    <!-- VENTANA MODAL DE CONFIRMACIÓN Y COMPROBANTE -->
+    <div id="modal-confirm" class="modal-overlay" hidden>
+      <div class="modal-dialog">
+        <div class="modal-top-bar">
+          <span class="modal-top-title">REGISTRO COMPLETADO</span>
+          <button type="button" id="btn-close-modal" class="modal-close-btn" aria-label="Cerrar">&times;</button>
+        </div>
         
-        <div class="gf-confirmation-header">
-          <div class="gf-check-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+        <div class="modal-content" id="printable-summary">
+          <!-- Mensaje oficial requerido -->
+          <div class="success-banner-box">
+            <svg class="icon-fixed-20 success-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
               <polyline points="20 6 9 17 4 12"></polyline>
             </svg>
-          </div>
-          <h1 class="gf-title">Registro de Escuelas y Delegados • TECMUN</h1>
-        </div>
-
-        <div class="gf-confirmation-body">
-          <div class="gf-success-banner" id="confirmation-school-message">
-            ¡Registro de Escuela recibido con éxito en TECMUN!
-          </div>
-
-          <div class="gf-folio-box">
-            <span class="gf-folio-label">Folio Oficial de Registro:</span>
-            <strong class="gf-folio-code" id="confirmation-folio">TECMUN-CEM-2026-0000</strong>
-            <span class="gf-folio-date" id="confirmation-timestamp"></span>
-          </div>
-
-          <p class="gf-confirmation-text">
-            Se ha registrado correctamente la delegación con todos los alumnos inscritos. Hemos guardado una copia en el sistema del comité organizador.
-          </p>
-
-          <div class="gf-summary-box">
-            <h3 class="gf-summary-title">Resumen de la Institución</h3>
-            <div class="gf-summary-row">
-              <span class="gf-summary-label">Institución:</span>
-              <span class="gf-summary-val" id="resumen-school-name">-</span>
-            </div>
-            <div class="gf-summary-row">
-              <span class="gf-summary-label">Asesor(a) Responsable:</span>
-              <span class="gf-summary-val" id="resumen-advisor-name">-</span>
-            </div>
-            <div class="gf-summary-row">
-              <span class="gf-summary-label">Correo de contacto:</span>
-              <span class="gf-summary-val" id="resumen-advisor-email">-</span>
-            </div>
-            <div class="gf-summary-row">
-              <span class="gf-summary-label">Teléfono:</span>
-              <span class="gf-summary-val" id="resumen-advisor-phone">-</span>
+            <div class="success-banner-text" id="modal-success-message">
+              ¡Registro recibido con éxito en TECMUN!
             </div>
           </div>
 
-          <div class="gf-delegates-summary-wrapper">
-            <h3 class="gf-summary-title">
-              Delegados Inscritos (<span id="resumen-delegates-count">0</span>)
+          <div class="folio-row">
+            <span class="folio-tag">FOLIO OFICIAL:</span>
+            <strong class="folio-num" id="modal-folio">TECMUN-CEM-2026-0000</strong>
+            <span class="folio-date" id="modal-timestamp"></span>
+          </div>
+
+          <!-- Resumen de Escuela -->
+          <div class="summary-group">
+            <h3 class="summary-group-title">Datos Institucionales</h3>
+            <div class="summary-info-grid">
+              <div><strong>Escuela:</strong> <span id="sum-school">-</span></div>
+              <div><strong>Ubicación:</strong> <span id="sum-location">-</span></div>
+              <div><strong>Asesor Responsable:</strong> <span id="sum-advisor">-</span></div>
+              <div><strong>Correo de Contacto:</strong> <span id="sum-email">-</span></div>
+            </div>
+          </div>
+
+          <!-- Resumen de Delegados -->
+          <div class="summary-group">
+            <h3 class="summary-group-title">
+              Delegados Inscritos (<span id="sum-del-count">0</span>)
             </h3>
-            <div class="gf-table-scroll">
-              <table class="gf-table" id="resumen-delegates-table">
+            <div class="table-responsive">
+              <table class="summary-table">
                 <thead>
                   <tr>
                     <th>#</th>
-                    <th>Nombre del Alumno</th>
-                    <th>Grado / Semestre</th>
-                    <th>Correo</th>
-                    <th>Comité</th>
+                    <th>Nombre Completo</th>
+                    <th>Grado Escolar</th>
+                    <th>Comité Asignado</th>
                     <th>País / Delegación</th>
                     <th>Restricciones</th>
                   </tr>
                 </thead>
-                <tbody id="resumen-delegates-tbody"></tbody>
+                <tbody id="sum-del-tbody"></tbody>
               </table>
             </div>
           </div>
+        </div>
 
-          <div class="gf-confirmation-actions">
-            <button type="button" id="btn-print-summary" class="gf-btn-secondary">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 6 2 18 2 18 9"></polyline>
-                <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
-                <rect x="6" y="14" width="12" height="8"></rect>
-              </svg>
-              Descargar / Imprimir Comprobante (PDF)
-            </button>
+        <div class="modal-bottom-actions">
+          <button type="button" id="btn-print-pdf" class="btn-print">
+            <svg class="icon-fixed-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 6 2 18 2 18 9"></polyline>
+              <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+              <rect x="6" y="14" width="12" height="8"></rect>
+            </svg>
+            Imprimir Comprobante (PDF)
+          </button>
+          <button type="button" id="btn-modal-dismiss" class="btn-modal-close">
+            Aceptar y Cerrar
+          </button>
+        </div>
 
-            <button type="button" id="btn-submit-another" class="gf-btn-link">
-              Enviar otra respuesta
-            </button>
+      </div>
+    </div>
+
+    <!-- Pie de Página Institucional -->
+    <footer class="form-footer">
+      <p>© 2026 TECMUN • Tecnológico de Monterrey, Campus Estado de México.</p>
+      <p class="footer-sub">Secretaría General y Comité Organizador de Modelos de Naciones Unidas CEM.</p>
+      <div class="footer-admin-wrap">
+        <button type="button" id="btn-open-settings" class="btn-admin-pill" title="Configurar Google Sheets o ver respuestas">
+          <svg class="icon-fixed-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+          </svg>
+          <span>Conexión Google Sheets &amp; Ver Respuestas</span>
+        </button>
+      </div>
+    </footer>
+
+    <!-- MODAL DE CONFIGURACIÓN DE GOOGLE SHEETS Y RESPUESTAS -->
+    <div id="modal-settings" class="modal-overlay" hidden>
+      <div class="modal-dialog modal-dialog-settings">
+        <div class="modal-top-bar">
+          <span class="modal-top-title">CONFIGURACIÓN &amp; RESPUESTAS</span>
+          <button type="button" id="btn-close-settings" class="modal-close-btn" aria-label="Cerrar">&times;</button>
+        </div>
+        <div class="modal-content">
+          <div class="settings-box">
+            <h3 class="settings-section-title">1. Conexión a Google Sheets (En la Nube)</h3>
+            <p class="settings-desc">
+              Pega aquí la <strong>URL de tu Aplicación Web de Google Apps Script</strong>. Cada registro enviado se reflejará al instante en tu hoja de cálculo.
+            </p>
+            <div class="settings-input-group">
+              <input 
+                type="url" 
+                id="cfg-google-url" 
+                class="field-input" 
+                placeholder="https://script.google.com/macros/s/.../exec"
+              >
+              <button type="button" id="btn-save-cfg" class="btn-primary-blue btn-sm">
+                Guardar Enlace
+              </button>
+            </div>
+            <div id="cfg-status-indicator" class="cfg-status-box">
+              <span class="status-dot"></span>
+              <span id="cfg-status-text">Sin configurar</span>
+            </div>
           </div>
 
+          <div class="settings-box">
+            <h3 class="settings-section-title">2. Respuestas Guardadas en este Navegador</h3>
+            <p class="settings-desc">
+              Respaldo local automático de las delegaciones registradas desde este equipo.
+            </p>
+            <div class="settings-counter-row">
+              <span class="counter-label">Total de registros respaldados:</span>
+              <span class="counter-badge" id="cfg-counter">0</span>
+            </div>
+            <div class="settings-actions-row">
+              <button type="button" id="btn-export-csv" class="btn-export-csv">
+                <svg class="icon-fixed-16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                  <polyline points="7 10 12 15 17 10"></polyline>
+                  <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                <span>Descargar en Excel (.CSV)</span>
+              </button>
+              <button type="button" id="btn-clear-storage" class="btn-delete-del">
+                <span>Limpiar Historial Local</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="modal-bottom-actions">
+          <button type="button" id="btn-settings-dismiss" class="btn-modal-close">
+            Listo
+          </button>
         </div>
       </div>
     </div>
 
-    <footer class="gf-footer">
-      <div class="gf-footer-disclaimer">
-        Nunca envíes contraseñas a través de Formularios de TECMUN.
-      </div>
-      <div class="gf-footer-links">
-        <span>TECMUN CEM • Tecnológico de Monterrey</span>
-      </div>
-      <div class="gf-footer-brand">
-        <strong>Formularios de Registro</strong>
-      </div>
-    </footer>
+  </main>
 
-  </div>
+  <!-- Contenedor Toast -->
+  <div id="toast-box" class="toast-box" aria-live="polite"></div>
 
-  <div id="gf-toast-container" class="gf-toast-container" aria-live="polite"></div>
-
-  <script>
-    // ==========================================================================
-    // LÓGICA INTERACTIVA GOOGLE FORMS • TECMUN
-    // ==========================================================================
-    document.addEventListener('DOMContentLoaded', () => {
-      const COMMITTEES = [
-        { id: 'AG-DISEC', name: 'Asamblea General - DISEC (Desarme y Seguridad Internacional)' },
-        { id: 'CSNU', name: 'Consejo de Seguridad de las Naciones Unidas (CSNU)' },
-        { id: 'CDH', name: 'Consejo de Derechos Humanos (CDH)' },
-        { id: 'ECOFIN', name: 'ECOFIN (Asuntos Económicos y Financieros)' },
-        { id: 'ECOSOC', name: 'Consejo Económico y Social (ECOSOC)' },
-        { id: 'UN-WOMEN', name: 'ONU Mujeres (Igualdad de Género y Empoderamiento)' },
-        { id: 'PNUMA', name: 'PNUMA (Programa de las Naciones Unidas para el Medio Ambiente)' },
-        { id: 'CRISIS', name: 'Gabinete de Crisis Histórica / Futura' },
-        { id: 'CIJ', name: 'Corte Internacional de Justicia (CIJ)' },
-        { id: 'PRENSA', name: 'Cuerpo de Prensa Internacional / Medios de Comunicación' }
-      ];
-
-      const formView = document.getElementById('form-view');
-      const confirmationView = document.getElementById('confirmation-view');
-      const form = document.getElementById('registration-form');
-      const delegatesContainer = document.getElementById('delegates-container');
-      const btnAddDelegate = document.getElementById('btn-add-delegate');
-      const btnClearForm = document.getElementById('btn-clear-form');
-      const delegatesStatusText = document.getElementById('delegates-status-text');
-      const toastContainer = document.getElementById('gf-toast-container');
-
-      const confirmationSchoolMessage = document.getElementById('confirmation-school-message');
-      const confirmationFolio = document.getElementById('confirmation-folio');
-      const confirmationTimestamp = document.getElementById('confirmation-timestamp');
-      const resumenSchoolName = document.getElementById('resumen-school-name');
-      const resumenAdvisorName = document.getElementById('resumen-advisor-name');
-      const resumenAdvisorEmail = document.getElementById('resumen-advisor-email');
-      const resumenAdvisorPhone = document.getElementById('resumen-advisor-phone');
-      const resumenDelegatesCount = document.getElementById('resumen-delegates-count');
-      const resumenDelegatesTbody = document.getElementById('resumen-delegates-tbody');
-      const btnPrintSummary = document.getElementById('btn-print-summary');
-      const btnSubmitAnother = document.getElementById('btn-submit-another');
-
-      let delegateCounter = 0;
-
-      function setupCardFocusHandlers() {
-        document.querySelectorAll('.gf-card').forEach(card => {
-          card.addEventListener('click', () => setActiveCard(card));
-          card.addEventListener('focusin', () => setActiveCard(card));
-        });
-      }
-
-      function setActiveCard(targetCard) {
-        document.querySelectorAll('.gf-card').forEach(card => card.classList.remove('gf-active-card'));
-        if (targetCard) targetCard.classList.add('gf-active-card');
-      }
-
-      function createDelegateCard(index) {
-        delegateCounter += 1;
-        const uid = `del-${delegateCounter}`;
-
-        const card = document.createElement('div');
-        card.className = 'gf-card gf-delegate-card';
-        card.id = uid;
-        card.dataset.uid = uid;
-
-        const committeeOptions = COMMITTEES.map(c => 
-          `<option value="${escapeHtml(c.name)}">${escapeHtml(c.name)}</option>`
-        ).join('');
-
-        card.innerHTML = `
-          <div class="gf-delegate-card-header">
-            <div class="gf-delegate-header-title">
-              <span class="gf-pill-number" data-role="num-badge">Delegado ${index}</span>
-              <span class="gf-delegate-name-label" data-role="name-label">Nuevo Alumno</span>
-            </div>
-            <button type="button" class="gf-btn-icon-delete" data-action="remove" title="Eliminar delegado" aria-label="Eliminar este delegado">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="3 6 5 6 21 6"></polyline>
-                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                <line x1="10" y1="11" x2="10" y2="17"></line>
-                <line x1="14" y1="11" x2="14" y2="17"></line>
-              </svg>
-            </button>
-          </div>
-
-          <div class="gf-field-group">
-            <div class="gf-question-title">1. Nombre completo del alumno <span class="gf-req-star">*</span></div>
-            <div class="gf-input-wrapper">
-              <input type="text" id="${uid}-name" name="delegate_name[]" class="gf-text-input delegate-name-field" placeholder="Tu respuesta" required>
-              <div class="gf-input-bar"></div>
-            </div>
-            <div class="gf-error-msg" id="${uid}-name-error"></div>
-          </div>
-
-          <div class="gf-field-group">
-            <div class="gf-question-title">2. Grado escolar / Semestre <span class="gf-req-star">*</span></div>
-            <div class="gf-question-helper">Ej. 3er semestre, 1er año de preparatoria, secundaria, etc.</div>
-            <div class="gf-input-wrapper">
-              <input type="text" id="${uid}-grade" name="delegate_grade[]" class="gf-text-input" placeholder="Tu respuesta" required>
-              <div class="gf-input-bar"></div>
-            </div>
-            <div class="gf-error-msg" id="${uid}-grade-error"></div>
-          </div>
-
-          <div class="gf-field-group">
-            <div class="gf-question-title">3. Correo electrónico del alumno <span class="gf-req-star">*</span></div>
-            <div class="gf-input-wrapper">
-              <input type="email" id="${uid}-email" name="delegate_email[]" class="gf-text-input" placeholder="alumno@colegio.edu.mx" required>
-              <div class="gf-input-bar"></div>
-            </div>
-            <div class="gf-error-msg" id="${uid}-email-error"></div>
-          </div>
-
-          <div class="gf-field-group">
-            <div class="gf-question-title">4. Comité asignado <span class="gf-req-star">*</span></div>
-            <div class="gf-select-wrapper">
-              <select id="${uid}-committee" name="delegate_committee[]" class="gf-select-input" required>
-                <option value="" disabled selected>Elige</option>
-                ${committeeOptions}
-              </select>
-              <svg class="gf-select-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="6 9 12 15 18 9"></polyline>
-              </svg>
-            </div>
-            <div class="gf-error-msg" id="${uid}-committee-error"></div>
-          </div>
-
-          <div class="gf-field-group">
-            <div class="gf-question-title">5. País / Delegación asignada <span class="gf-req-star">*</span></div>
-            <div class="gf-question-helper">País u organismo que representará el delegado en este comité.</div>
-            <div class="gf-input-wrapper">
-              <input type="text" id="${uid}-country" name="delegate_country[]" class="gf-text-input" placeholder="Tu respuesta" required>
-              <div class="gf-input-bar"></div>
-            </div>
-            <div class="gf-error-msg" id="${uid}-country-error"></div>
-          </div>
-
-          <div class="gf-field-group">
-            <div class="gf-question-title">6. Restricciones alimenticias o médicas</div>
-            <div class="gf-question-helper">Opcional (alergias a alimentos, vegetarianismo, asma, etc.). Si no aplica, dejar en blanco.</div>
-            <div class="gf-input-wrapper">
-              <input type="text" id="${uid}-restrictions" name="delegate_restrictions[]" class="gf-text-input" placeholder="Tu respuesta">
-              <div class="gf-input-bar"></div>
-            </div>
-            <div class="gf-error-msg" id="${uid}-restrictions-error"></div>
-          </div>
-        `;
-
-        const nameInput = card.querySelector('.delegate-name-field');
-        const nameLabel = card.querySelector('[data-role="name-label"]');
-        nameInput.addEventListener('input', (e) => {
-          const val = e.target.value.trim();
-          nameLabel.textContent = val ? val : 'Nuevo Alumno';
-        });
-
-        const removeBtn = card.querySelector('[data-action="remove"]');
-        removeBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          removeDelegateCard(card);
-        });
-
-        card.querySelectorAll('input, select').forEach(input => {
-          input.addEventListener('input', () => clearError(input));
-          input.addEventListener('change', () => clearError(input));
-        });
-
-        card.addEventListener('click', () => setActiveCard(card));
-        card.addEventListener('focusin', () => setActiveCard(card));
-
-        return card;
-      }
-
-      function addDelegate() {
-        const currentTotal = delegatesContainer.querySelectorAll('.gf-delegate-card').length;
-        const newCard = createDelegateCard(currentTotal + 1);
-        delegatesContainer.appendChild(newCard);
-        
-        updateDelegatesCount();
-        setActiveCard(newCard);
-
-        const firstField = newCard.querySelector('.delegate-name-field');
-        if (firstField) firstField.focus();
-      }
-
-      function removeDelegateCard(card) {
-        card.classList.add('removing');
-        setTimeout(() => {
-          card.remove();
-          updateDelegatesCount();
-          reindexDelegates();
-          showToast('Delegado eliminado del formulario');
-        }, 200);
-      }
-
-      function reindexDelegates() {
-        const cards = delegatesContainer.querySelectorAll('.gf-delegate-card');
-        cards.forEach((card, idx) => {
-          const badge = card.querySelector('[data-role="num-badge"]');
-          if (badge) badge.textContent = `Delegado ${idx + 1}`;
-        });
-      }
-
-      function updateDelegatesCount() {
-        const count = delegatesContainer.querySelectorAll('.gf-delegate-card').length;
-        delegatesStatusText.textContent = count === 1 ? '1 delegado registrado' : `${count} delegados registrados`;
-      }
-
-      const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      const PHONE_REGEX = /^[\d\s()+-]{7,20}$/;
-
-      function setError(input, message) {
-        input.classList.add('is-invalid');
-        const errorDiv = document.getElementById(`${input.id}-error`);
-        if (errorDiv) errorDiv.textContent = message;
-      }
-
-      function clearError(input) {
-        input.classList.remove('is-invalid');
-        const errorDiv = document.getElementById(`${input.id}-error`);
-        if (errorDiv) errorDiv.textContent = '';
-      }
-
-      ['school-name', 'advisor-name', 'advisor-email', 'advisor-phone'].forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          el.addEventListener('input', () => clearError(el));
-          el.addEventListener('change', () => clearError(el));
-        }
-      });
-
-      function validateAll() {
-        let isValid = true;
-        let firstErrorElement = null;
-
-        const schoolName = document.getElementById('school-name');
-        const advisorName = document.getElementById('advisor-name');
-        const advisorEmail = document.getElementById('advisor-email');
-        const advisorPhone = document.getElementById('advisor-phone');
-
-        if (!schoolName.value.trim()) {
-          setError(schoolName, 'Esta pregunta es obligatoria.');
-          isValid = false;
-          if (!firstErrorElement) firstErrorElement = schoolName;
-        }
-
-        if (!advisorName.value.trim()) {
-          setError(advisorName, 'Esta pregunta es obligatoria.');
-          isValid = false;
-          if (!firstErrorElement) firstErrorElement = advisorName;
-        }
-
-        if (!advisorEmail.value.trim()) {
-          setError(advisorEmail, 'Esta pregunta es obligatoria.');
-          isValid = false;
-          if (!firstErrorElement) firstErrorElement = advisorEmail;
-        } else if (!EMAIL_REGEX.test(advisorEmail.value.trim())) {
-          setError(advisorEmail, 'Ingresa una dirección de correo válida.');
-          isValid = false;
-          if (!firstErrorElement) firstErrorElement = advisorEmail;
-        }
-
-        if (!advisorPhone.value.trim()) {
-          setError(advisorPhone, 'Esta pregunta es obligatoria.');
-          isValid = false;
-          if (!firstErrorElement) firstErrorElement = advisorPhone;
-        } else if (!PHONE_REGEX.test(advisorPhone.value.trim())) {
-          setError(advisorPhone, 'Ingresa un número telefónico válido (mínimo 7 dígitos).');
-          isValid = false;
-          if (!firstErrorElement) firstErrorElement = advisorPhone;
-        }
-
-        const delegateCards = delegatesContainer.querySelectorAll('.gf-delegate-card');
-        if (delegateCards.length === 0) {
-          showToast('Debes agregar al menos un delegado a la lista.');
-          addDelegate();
-          return false;
-        }
-
-        delegateCards.forEach(card => {
-          const nameInp = card.querySelector('input[name="delegate_name[]"]');
-          const gradeInp = card.querySelector('input[name="delegate_grade[]"]');
-          const emailInp = card.querySelector('input[name="delegate_email[]"]');
-          const commSel = card.querySelector('select[name="delegate_committee[]"]');
-          const countryInp = card.querySelector('input[name="delegate_country[]"]');
-
-          if (!nameInp.value.trim()) {
-            setError(nameInp, 'Esta pregunta es obligatoria.');
-            isValid = false;
-            if (!firstErrorElement) firstErrorElement = nameInp;
-          }
-
-          if (!gradeInp.value.trim()) {
-            setError(gradeInp, 'Esta pregunta es obligatoria.');
-            isValid = false;
-            if (!firstErrorElement) firstErrorElement = gradeInp;
-          }
-
-          if (!emailInp.value.trim()) {
-            setError(emailInp, 'Esta pregunta es obligatoria.');
-            isValid = false;
-            if (!firstErrorElement) firstErrorElement = emailInp;
-          } else if (!EMAIL_REGEX.test(emailInp.value.trim())) {
-            setError(emailInp, 'Ingresa una dirección de correo válida.');
-            isValid = false;
-            if (!firstErrorElement) firstErrorElement = emailInp;
-          }
-
-          if (!commSel.value) {
-            setError(commSel, 'Esta pregunta es obligatoria.');
-            isValid = false;
-            if (!firstErrorElement) firstErrorElement = commSel;
-          }
-
-          if (!countryInp.value.trim()) {
-            setError(countryInp, 'Esta pregunta es obligatoria.');
-            isValid = false;
-            if (!firstErrorElement) firstErrorElement = countryInp;
-          }
-        });
-
-        if (!isValid && firstErrorElement) {
-          firstErrorElement.focus();
-          const parentCard = firstErrorElement.closest('.gf-card');
-          if (parentCard) {
-            setActiveCard(parentCard);
-            parentCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-          showToast('Por favor completa las preguntas obligatorias.');
-        }
-
-        return isValid;
-      }
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-
-        if (!validateAll()) return;
-
-        const schoolVal = document.getElementById('school-name').value.trim();
-        const advisorVal = document.getElementById('advisor-name').value.trim();
-        const emailVal = document.getElementById('advisor-email').value.trim();
-        const phoneVal = document.getElementById('advisor-phone').value.trim();
-
-        const delegateCards = delegatesContainer.querySelectorAll('.gf-delegate-card');
-        const delegatesData = [];
-
-        delegateCards.forEach((card, idx) => {
-          delegatesData.push({
-            num: idx + 1,
-            name: card.querySelector('input[name="delegate_name[]"]').value.trim(),
-            grade: card.querySelector('input[name="delegate_grade[]"]').value.trim(),
-            email: card.querySelector('input[name="delegate_email[]"]').value.trim(),
-            committee: card.querySelector('select[name="delegate_committee[]"]').value,
-            country: card.querySelector('input[name="delegate_country[]"]').value.trim(),
-            restrictions: card.querySelector('input[name="delegate_restrictions[]"]').value.trim() || 'Ninguna'
-          });
-        });
-
-        const folioRandom = Math.floor(1000 + Math.random() * 9000);
-        const folioCode = `TECMUN-CEM-2026-${folioRandom}`;
-        const dateFormatted = new Date().toLocaleString('es-MX', {
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-          hour: '2-digit',
-          minute: '2-digit'
-        });
-
-        confirmationSchoolMessage.innerHTML = `¡Registro de <strong>${escapeHtml(schoolVal)}</strong> recibido con éxito en TECMUN!`;
-        confirmationFolio.textContent = folioCode;
-        confirmationTimestamp.textContent = `Fecha de registro: ${dateFormatted}`;
-
-        resumenSchoolName.textContent = schoolVal;
-        resumenAdvisorName.textContent = advisorVal;
-        resumenAdvisorEmail.textContent = emailVal;
-        resumenAdvisorPhone.textContent = phoneVal;
-        resumenDelegatesCount.textContent = delegatesData.length;
-
-        resumenDelegatesTbody.innerHTML = '';
-        delegatesData.forEach(d => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td style="font-weight:700; color:#003366;">${d.num}</td>
-            <td><strong>${escapeHtml(d.name)}</strong></td>
-            <td>${escapeHtml(d.grade)}</td>
-            <td style="word-break:break-all;">${escapeHtml(d.email)}</td>
-            <td><span style="background:#e8f0fe; color:#0056B3; padding:2px 6px; border-radius:3px; font-weight:500;">${escapeHtml(d.committee)}</span></td>
-            <td><strong>${escapeHtml(d.country)}</strong></td>
-            <td style="color:#555;">${escapeHtml(d.restrictions)}</td>
-          `;
-          resumenDelegatesTbody.appendChild(tr);
-        });
-
-        formView.hidden = true;
-        confirmationView.hidden = false;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-      });
-
-      btnPrintSummary.addEventListener('click', () => window.print());
-
-      btnSubmitAnother.addEventListener('click', () => {
-        resetCompleteForm();
-        confirmationView.hidden = true;
-        formView.hidden = false;
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-        showToast('Formulario restablecido para un nuevo registro');
-      });
-
-      btnClearForm.addEventListener('click', () => {
-        const hasData = document.getElementById('school-name').value.trim() || 
-                        document.getElementById('advisor-name').value.trim() || 
-                        delegatesContainer.querySelectorAll('.gf-delegate-card').length > 1;
-
-        if (hasData) {
-          const conf = window.confirm('¿Deseas borrar el formulario? Se perderán todas tus respuestas.');
-          if (!conf) return;
-        }
-
-        resetCompleteForm();
-        showToast('Respuestas eliminadas');
-      });
-
-      function resetCompleteForm() {
-        form.reset();
-        form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-        form.querySelectorAll('.gf-error-msg').forEach(el => el.textContent = '');
-        delegatesContainer.innerHTML = '';
-        delegateCounter = 0;
-        addDelegate();
-        setActiveCard(document.getElementById('card-header'));
-      }
-
-      function showToast(message) {
-        const toast = document.createElement('div');
-        toast.className = 'gf-toast';
-        toast.textContent = message;
-        toastContainer.appendChild(toast);
-
-        setTimeout(() => {
-          toast.style.opacity = '0';
-          toast.style.transition = 'opacity 0.25s ease';
-          setTimeout(() => toast.remove(), 250);
-        }, 3500);
-      }
-
-      function escapeHtml(str) {
-        if (!str) return '';
-        const map = {
-          '&': '&amp;',
-          '<': '&lt;',
-          '>': '&gt;',
-          '"': '&quot;',
-          "'": '&#039;'
-        };
-        return String(str).replace(/[&<>"']/g, m => map[m]);
-      }
-
-      btnAddDelegate.addEventListener('click', addDelegate);
-      setupCardFocusHandlers();
-      addDelegate();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
