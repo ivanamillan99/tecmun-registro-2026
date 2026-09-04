@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de Escuelas y Delegaciones • TECMUN | Tecnológico de Monterrey</title>
+  <meta name="description" content="Portal oficial de registro para escuelas e instituciones invitadas a TECMUN (Tecnológico de Monterrey, Campus Estado de México). Alta de asesores y delegados.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+  
+  <!-- Tipografía Inter y Montserrat -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Barra Superior Institucional -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="brand-group">
+        <div class="brand-logo" aria-hidden="true">
+          <!-- Emblema de la ONU / TECMUN estilizado en SVG -->
+          <svg class="mun-icon" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="2.2" stroke-dasharray="4 2" />
+            <circle cx="24" cy="24" r="16" stroke="currentColor" stroke-width="1.6" />
+            <ellipse cx="24" cy="24" rx="16" ry="7" stroke="currentColor" stroke-width="1.3" />
+            <line x1="24" y1="8" x2="24" y2="40" stroke="currentColor" stroke-width="1.6" />
+            <line x1="8" y1="24" x2="40" y2="24" stroke="currentColor" stroke-width="1.6" />
+            <circle cx="24" cy="24" r="3.5" fill="currentColor" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">TECMUN</span>
+          <span class="brand-subtitle">Modelo de Naciones Unidas • Campus Estado de México</span>
+        </div>
+      </div>
+      <div class="nav-badge">
+        <span class="tec-pill">Tecnológico de Monterrey</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Contenedor Principal -->
+  <main class="main-wrapper">
+    
+    <!-- Hero / Encabezado de la página -->
+    <section class="hero-section">
+      <div class="hero-content">
+        <div class="event-tag">Registro Oficial de Escuelas Invitadas</div>
+        <h1 class="hero-title">Inscripción de Delegaciones Escolares</h1>
+        <p class="hero-description">
+          Estimados asesores y <em>Faculty Advisors</em>: registren los datos institucionales de su escuela y den de alta a todos los alumnos que asistirán como delegados (representantes de un país dentro de su comité asignado) en esta edición de <strong>TECMUN CEM</strong>.
+        </p>
+        <div class="hero-meta">
+          <div class="meta-item">
+            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="16" y1="2" x2="16" y2="6"></line>
+              <line x1="8" y1="2" x2="8" y2="6"></line>
+              <line x1="3" y1="10" x2="21" y2="10"></line>
+            </svg>
+            <span>Edición Presencial • Campus Edo. de México</span>
+          </div>
+          <div class="meta-item">
+            <svg class="meta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            <span>Registro Dinámico por Escuela</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Formulario de Registro -->
+    <form id="registration-form" novalidate>
+
+      <!-- SECCIÓN 1: DATOS DE LA INSTITUCIÓN Y ASESOR -->
+      <section class="form-card" id="section-institution">
+        <div class="card-header">
+          <div class="header-icon-wrapper">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="header-icon">
+              <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M4 10l8-6 8 6"/>
+            </svg>
+          </div>
+          <div>
+            <span class="step-indicator">Sección 1</span>
+            <h2 class="card-title">Datos de la Institución y Asesor(a) Responsable</h2>
+            <p class="card-subtitle">Información oficial de la escuela y datos de contacto del asesor o asesora enlace.</p>
+          </div>
+        </div>
+
+        <div class="card-body form-grid">
+          <!-- Nombre de la Escuela -->
+          <div class="form-group full-width">
+            <label for="school-name" class="form-label">
+              Nombre de la Escuela / Institución <span class="required" aria-label="obligatorio">*</span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+              <input 
+                type="text" 
+                id="school-name" 
+                name="school-name" 
+                class="form-input" 
+                placeholder="Ej. Colegio Alemán Alexander von Humboldt / PrepaTec Campus CEM" 
+                required
+                autocomplete="organization"
+              >
+            </div>
+            <span class="error-feedback" id="school-name-error"></span>
+          </div>
+
+          <!-- Nombre del Asesor -->
+          <div class="form-group full-width">
+            <label for="advisor-name" class="form-label">
+              Nombre Completo del Asesor(a) Responsable <span class="required" aria-label="obligatorio">*</span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input 
+                type="text" 
+                id="advisor-name" 
+                name="advisor-name" 
+                class="form-input" 
+                placeholder="Ej. Prof. Roberto Garza Morales / Mtra. Sofía Ramírez" 
+                required
+                autocomplete="name"
+              >
+            </div>
+            <span class="error-feedback" id="advisor-name-error"></span>
+          </div>
+
+          <!-- Correo Institucional / Contacto -->
+          <div class="form-group half-width">
+            <label for="advisor-email" class="form-label">
+              Correo Electrónico de Contacto <span class="required" aria-label="obligatorio">*</span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+              <input 
+                type="email" 
+                id="advisor-email" 
+                name="advisor-email" 
+                class="form-input" 
+                placeholder="asesor@colegio.edu.mx" 
+                required
+                autocomplete="email"
+              >
+            </div>
+            <span class="error-feedback" id="advisor-email-error"></span>
+          </div>
+
+          <!-- Teléfono de Contacto -->
+          <div class="form-group half-width">
+            <label for="advisor-phone" class="form-label">
+              Teléfono de Contacto <span class="required" aria-label="obligatorio">*</span>
+            </label>
+            <div class="input-wrapper">
+              <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <input 
+                type="tel" 
+                id="advisor-phone" 
+                name="advisor-phone" 
+                class="form-input" 
+                placeholder="Ej. 55 1234 5678" 
+                required
+                autocomplete="tel"
+              >
+            </div>
+            <span class="error-feedback" id="advisor-phone-error"></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 2: REGISTRO DINÁMICO DE DELEGADOS -->
+      <section class="form-card" id="section-delegates">
+        <div class="card-header-flex">
+          <div class="header-main">
+            <div class="header-icon-wrapper">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="header-icon">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                <circle cx="9" cy="7" r="4"></circle>
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+              </svg>
+            </div>
+            <div>
+              <span class="step-indicator">Sección 2</span>
+              <h2 class="card-title">Registro Dinámico de Delegados</h2>
+              <p class="card-subtitle">Agrega individualmente a cada alumno que representará a un país dentro de un comité.</p>
+            </div>
+          </div>
+          <div class="delegates-badge-wrapper">
+            <span class="delegates-counter-badge" id="delegates-counter-badge">
+              <span class="counter-number" id="counter-value">0</span> delegados registrados
+            </span>
+          </div>
+        </div>
+
+        <!-- Contenedor dinámico de bloques de delegados -->
+        <div id="delegates-container" class="delegates-list" aria-live="polite">
+          <!-- Se poblará vía JavaScript con delegados -->
+        </div>
+
+        <!-- Botón para añadir delegado -->
+        <div class="add-delegate-wrapper">
+          <button type="button" id="btn-add-delegate" class="btn btn-secondary btn-lg">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" class="btn-icon">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="16"></line>
+              <line x1="8" y1="12" x2="16" y2="12"></line>
+            </svg>
+            + Agregar Delegado
+          </button>
+          <span class="add-hint">Haz clic tantas veces como delegados integren la delegación de tu escuela.</span>
+        </div>
+      </section>
+
+      <!-- SECCIÓN 3: ACCIONES DE ENVÍO Y VALIDACIÓN -->
+      <section class="form-actions-bar">
+        <div class="actions-info">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="info-icon">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+          <p>
+            Al presionar <strong>Registrar Delegación</strong> se validarán los datos de la institución y de todos los alumnos registrados, generando un folio oficial con confirmación inmediata.
+          </p>
+        </div>
+        <div class="actions-buttons">
+          <button type="button" id="btn-reset-form" class="btn btn-outline">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+              <path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            Limpiar Formulario
+          </button>
+          <button type="submit" id="btn-submit" class="btn btn-primary btn-xl">
+            <span class="btn-label">Registrar Delegación</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon-right">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+    </form>
+  </main>
+
+  <!-- MODAL DE CONFIRMACIÓN DE REGISTRO EXITOSO -->
+  <div class="modal-backdrop" id="confirmation-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+    <div class="modal-card">
+      
+      <!-- Encabezado del Modal -->
+      <div class="modal-header">
+        <div class="success-icon-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" class="check-icon">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <div class="modal-header-text">
+          <span class="folio-tag" id="summary-folio">FOLIO: TECMUN-2026-0001</span>
+          <h2 class="modal-title" id="modal-title">¡Registro Completado con Éxito!</h2>
+          <p class="modal-subtitle" id="modal-school-message">
+            <!-- Mensaje dinámico: ¡Registro de [Nombre de la Escuela] recibido con éxito en TECMUN! -->
+          </p>
+        </div>
+        <button type="button" class="btn-close-modal" id="btn-close-modal" aria-label="Cerrar ventana emergente">&times;</button>
+      </div>
+
+      <!-- Cuerpo del Modal: Resumen de la Inscripción -->
+      <div class="modal-body" id="printable-area">
+        
+        <!-- Membrete solo visible al imprimir -->
+        <div class="print-header">
+          <div class="print-title-box">
+            <h2>TECMUN • Tecnológico de Monterrey</h2>
+            <p>Campus Estado de México — Comprobante Oficial de Registro de Delegación</p>
+          </div>
+          <div class="print-folio-box">
+            <span class="print-folio-label">Folio Oficial:</span>
+            <span class="print-folio-number" id="print-folio-number">TECMUN-0000</span>
+            <span class="print-date" id="print-timestamp"></span>
+          </div>
+        </div>
+
+        <!-- Ficha Resumen de la Institución y Asesor -->
+        <div class="summary-section">
+          <h3 class="summary-section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon">
+              <path d="M3 21h18M3 10h18M5 10v11M19 10v11M9 10v11M15 10v11M4 10l8-6 8 6"/>
+            </svg>
+            Datos Institucionales y Asesor Responsable
+          </h3>
+          <div class="summary-grid">
+            <div class="summary-field">
+              <span class="summary-label">Institución / Escuela:</span>
+              <span class="summary-value" id="summary-school-name">-</span>
+            </div>
+            <div class="summary-field">
+              <span class="summary-label">Asesor(a) Responsable:</span>
+              <span class="summary-value" id="summary-advisor-name">-</span>
+            </div>
+            <div class="summary-field">
+              <span class="summary-label">Correo de Contacto:</span>
+              <span class="summary-value" id="summary-advisor-email">-</span>
+            </div>
+            <div class="summary-field">
+              <span class="summary-label">Teléfono:</span>
+              <span class="summary-value" id="summary-advisor-phone">-</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tabla Resumen de Delegados -->
+        <div class="summary-section">
+          <h3 class="summary-section-title">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="section-icon">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+            Delegados Inscritos (<span id="summary-delegates-count">0</span>)
+          </h3>
+          
+          <div class="summary-table-wrapper">
+            <table class="summary-table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Nombre del Alumno</th>
+                  <th>Grado / Semestre</th>
+                  <th>Correo</th>
+                  <th>Comité</th>
+                  <th>País / Delegación</th>
+                  <th>Restricciones Médicas/Alimenticias</th>
+                </tr>
+              </thead>
+              <tbody id="summary-delegates-tbody">
+                <!-- Se poblará vía JavaScript -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Nota oficial y siguientes pasos -->
+        <div class="summary-notice">
+          <strong>Instrucciones y Siguientes Pasos:</strong>
+          <p>
+            Conserva este comprobante para tus registros. La Secretaría General de <strong>TECMUN CEM</strong> enviará a la brevedad los paquetes informativos (<em>Background Guides</em>), confirmación de asignación de salas y la guía de pago al correo del asesor(a).
+          </p>
+        </div>
+      </div>
+
+      <!-- Pie del Modal con Acciones -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="btn-modal-new">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+          </svg>
+          Registrar Otra Delegación
+        </button>
+        <button type="button" class="btn btn-primary" id="btn-modal-print">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn-icon">
+            <polyline points="6 9 6 2 18 2 18 9"></polyline>
+            <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path>
+            <rect x="6" y="14" width="12" height="8"></rect>
+          </svg>
+          Descargar / Imprimir Resumen (PDF)
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- Pie de Página Institucional -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <p class="footer-copy">
+        © 2026 TECMUN • Tecnológico de Monterrey, Campus Estado de México. Todos los derechos reservados.
+      </p>
+      <p class="footer-sub">
+        Secretaría General y Comité Organizador de Modelos de Naciones Unidas CEM.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Lógica JavaScript Principal -->
+  <script src="script.js"></script>
+</body>
+</html>
